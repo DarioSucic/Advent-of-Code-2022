@@ -1,5 +1,5 @@
 
-import os, re, gc
+import os, re, gc, ast
 from time import perf_counter_ns
 from collections import defaultdict
 
@@ -8,32 +8,44 @@ from tabulate import tabulate
 # Import these outside benchmark to avoid skewing result
 import numpy
 
-BENCHMARK_GLOBALS = { "print": lambda *args, **kwargs: None }
 MILLISECOND = 10**6
 FILENAME_RE = re.compile(r"(\d+)\_(\d)_?(\w+)?\.py")
+
+class PatchIO(ast.NodeTransformer):
+    BLACKLIST = { "print", "clipboard" }
+
+    def visit_Expr(self, node: ast.Expr):
+        if isinstance(node.value, ast.Call) and isinstance(node.value.func, ast.Name):
+            if node.value.func.id in self.BLACKLIST:
+                return None
+        return node
 
 def benchmark(filename, n=None):
     with open(filename) as file:
         source = file.read()
     
-    code = compile(source, filename, "exec")
+    root = ast.parse(source, filename)
+    PatchIO().visit(root)
+    code = compile(root, filename, "exec")
 
     # Warmup run / time estimation
     st = perf_counter_ns()
-    exec(code, BENCHMARK_GLOBALS)
+    exec(code, {})
     et = perf_counter_ns()
 
     if n is None:
         target_time = 200*MILLISECOND
-        n = max(1, target_time // (et - st))
+        n = min(max(1, target_time // (et - st)), 250)
 
     measurements = []
     for _ in range(n):
         gc.collect()
         st = perf_counter_ns()
-        exec(code, BENCHMARK_GLOBALS)
+        exec(code, {})
         et = perf_counter_ns()
         measurements.append(et-st)
+
+    print(min(measurements), max(measurements))
 
     return measurements
 
