@@ -1,0 +1,9 @@
+.vscode
+__pycache__
+
+cache*.json
+leaderboard.py
+download.py
+session.txt
+
+__*
