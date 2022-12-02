@@ -7,4 +7,5 @@ Allowed cleanup: reordering lines, removing unused variables
 ## Runtimes
 |   Day | Part 1   | Part 2   |
 |-------|----------|----------|
-|     1 | 738 µs   | 738 µs   |
+|     1 | 551 µs   | 557 µs   |
+|     2 | 683 µs   | 707 µs   |
