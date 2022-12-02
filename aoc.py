@@ -61,22 +61,11 @@ def nth(it, n):
 
 # --- Input / Output -------------------------------------------------------------------
 
-def resolve_path(**kwargs) -> Path:
-    # TODO: What is this...
-    for folder in kwargs.get("folders", ["inputs/{day}", "."]):
-        path = Path(folder.format(**kwargs)) / "input"
-        if path.exists():
-            return path
+def puzzle_input(day, root_folder=Path(__file__).parent):
+    return (root_folder / "inputs" / str(day) / "input").read_text()
 
-def read_string(**kwargs):
-    with open(resolve_path(**kwargs)) as file:
-        return file.read().strip()
-
-def read_lines(**kwargs):
-    return read_string(**kwargs).splitlines()
-
-def read_grid(f=identity, **kwargs):
-    return [list(map(f, line)) for line in read_lines(**kwargs)]
+def read_grid(day, f=identity):
+    return [list(map(f, line)) for line in puzzle_input(day).split("\n")]
 
 def clipboard(x):
     x = str(x).strip()

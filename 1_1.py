@@ -1,7 +1,6 @@
 from aoc import *
 
-lines = read_lines(day=1)
-txt = read_string(day=1)
+txt = puzzle_input(day=1)
 
 chunks = txt.split("\n\n")
 m = 0
