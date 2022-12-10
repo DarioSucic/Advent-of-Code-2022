@@ -17,7 +17,7 @@ class PatchIO(ast.NodeTransformer):
     def visit_Expr(self, node: ast.Expr):
         if isinstance(node.value, ast.Call) and isinstance(node.value.func, ast.Name):
             if node.value.func.id in self.BLACKLIST:
-                return None
+                return ast.Pass(**node.__dict__)
         return node
 
 def benchmark(filename, n=None):
