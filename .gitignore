@@ -5,5 +5,6 @@ cache*.json
 leaderboard.py
 download.py
 session.txt
+watch.py
 
 __*

@@ -1,9 +1,7 @@
 from aoc import *
 
-ss = puzzle_input(day=8)
-ls = ss.split("\n")
-
-g = read_grid(day=8, f=int)[:-1]
+ss = puzzle_input(day=8).strip()
+g = to_grid(ss, f=int)
 
 w, h = len(g[0]), len(g)
 

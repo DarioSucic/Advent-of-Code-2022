@@ -61,11 +61,14 @@ def nth(it, n):
 
 # --- Input / Output -------------------------------------------------------------------
 
-def puzzle_input(day, root_folder=Path(__file__).parent):
+def puzzle_input(day, root_folder=Path(__file__).parent, strip=False):
     return (root_folder / "inputs" / str(day) / "input").read_text()
 
-def read_grid(day, f=identity):
-    return [list(map(f, line)) for line in puzzle_input(day).split("\n")]
+def to_grid(s, f=identity, strip=True):
+    if strip:
+        return [list(map(f, line.strip())) for line in s.split("\n")]
+    else:
+        return [list(map(f, line)) for line in s.split("\n")]
 
 def clipboard(x):
     x = str(x).strip()
