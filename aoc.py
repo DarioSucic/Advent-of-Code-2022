@@ -3,6 +3,7 @@ import re, math
 from itertools import islice, permutations
 from pathlib import Path
 from collections import defaultdict, Counter
+from collections.abc import Iterable
 
 # --- Parsing -----------------------------------------------------------------
 
@@ -46,6 +47,22 @@ def crt(a, n):
         p = N // n_i
         total += a_i * mul_inv(p, n_i) * p
     return total % N
+
+def merge_ranges(rs):
+    """Merges overlapping `range` objects in the iterable `rs`.
+
+       merge_ranges([range(0, 5), range(2, 7)]) == [range(0, 7)]
+    """
+    rs = sorted(rs, key = lambda r: r.start)
+    out = [rs[0]]
+    for r in rs[1:]:
+        if r.start in out[-1]:
+            if r.stop > out[-1].stop:
+                out[-1] = range(out[-1].start, r.stop)
+        else:
+            out.append(r)
+
+    return out
 
 # --- Iteration / Collections -------------------------------------------------
 
