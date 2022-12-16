@@ -3,7 +3,6 @@ import re, math
 from itertools import islice, permutations
 from pathlib import Path
 from collections import defaultdict, Counter
-from collections.abc import Iterable
 
 # --- Parsing -----------------------------------------------------------------
 
@@ -78,8 +77,8 @@ def nth(it, n):
 
 # --- Input / Output -------------------------------------------------------------------
 
-def puzzle_input(day, root_folder=Path(__file__).parent, strip=False):
-    return (root_folder / "inputs" / str(day) / "input").read_text()
+def puzzle_input(day, root_folder=Path(__file__).parent):
+    return (root_folder / "inputs" / f"{day}.txt").read_text()
 
 def to_grid(s, f=identity, strip=True):
     if strip:
