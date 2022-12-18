@@ -20,3 +20,4 @@ Allowed cleanup: reordering lines, removing unused variables. If further changes
 |    15 | 156 µs     | 1,708,882 µs |
 |    16 | 282,773 µs | 5,666,584 µs |
 |    17 | 146,436 µs | 195,106 µs   |
+|    18 | 5,451 µs   | 34,092 µs    |
