@@ -5,19 +5,23 @@ AoC repo with the goal of posting solutions almost exactly as they were when the
 Allowed cleanup: reordering lines, removing unused variables. If further changes are necessary (ie. due to slow runtime) the original code will be put in a string block above the revised code.
 
 ## Runtimes
-|     3 | 502 µs     | 413 µs       |
-|     4 | 948 µs     | 971 µs       |
-|     5 | 956 µs     | 1,015 µs     |
-|     6 | 492 µs     | 1,558 µs     |
-|     7 | 1,120 µs   | 1,218 µs     |
-|     8 | 10,902 µs  | 13,455 µs    |
-|     9 | 13,516 µs  | 151,176 µs   |
-|    10 | 140 µs     | 177 µs       |
-|    11 | 2,230 µs   | 3,561,905 µs |
-|    12 | 17,504 µs  | 14,296 µs    |
-|    13 | 9,410 µs   | 12,140 µs    |
-|    14 | 11,947 µs  | 429,691 µs   |
-|    15 | 156 µs     | 1,708,882 µs |
-|    16 | 282,773 µs | 5,666,584 µs |
-|    17 | 146,436 µs | 195,106 µs   |
-|    18 | 5,451 µs   | 34,092 µs    |
+|   Day | Part 1     | Part 2       |
+|-------|------------|--------------|
+|     1 | 553 µs     | 574 µs       |
+|     2 | 687 µs     | 731 µs       |
+|     3 | 507 µs     | 425 µs       |
+|     4 | 960 µs     | 997 µs       |
+|     5 | 973 µs     | 1,025 µs     |
+|     6 | 420 µs     | 1,386 µs     |
+|     7 | 1,124 µs   | 1,228 µs     |
+|     8 | 11,010 µs  | 13,998 µs    |
+|     9 | 14,319 µs  | 155,436 µs   |
+|    10 | 146 µs     | 179 µs       |
+|    11 | 2,232 µs   | 3,583,993 µs |
+|    12 | 17,737 µs  | 14,063 µs    |
+|    13 | 9,779 µs   | 12,702 µs    |
+|    14 | 12,237 µs  | 439,703 µs   |
+|    15 | 161 µs     | 1,624,602 µs |
+|    16 | 284,251 µs | 5,467,196 µs |
+|    17 | 147,699 µs | 196,619 µs   |
+|    18 | 5,469 µs   | 35,461 µs    |
