@@ -27,3 +27,4 @@ Allowed cleanup: reordering lines, removing unused variables. If further changes
 |    18 | 5,469 µs     | 35,461 µs     |                        |
 |    19 | 9,109,998 µs | 15,089,970 µs | Using PyPy             |
 |    20 | 12,005 µs    | 141,156 µs    | Using PyPy, no cleanup |
+|    21 | 14,812 µs    | 18,391 µs     |                        |
